@@ -1,0 +1,15 @@
+<odoo>
+    <record model="ir.ui.view" id="tdt_pricelist_days">
+        <field name="name">product.pricelist.item</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='date_end']" position="after">
+                    <field name="days_to_apply"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+</odoo>
+
