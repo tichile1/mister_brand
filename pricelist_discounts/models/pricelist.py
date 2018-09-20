@@ -1,4 +1,4 @@
-from odoo import api, fields, models, tools,
+from odoo import api, fields, models, tools
 
 class Pricelist(models.Model):
     _inherit = "product.pricelist"
