@@ -164,11 +164,11 @@ class PricelistItem(models.Model):
     _inherit = "product.pricelist.item"
 
     days_to_apply = fields.Boolean("Specific Days")
-    monday = fields.Boolean("Lunes")
-    tuesday = fields.Boolean("Martes")
-    wednesday = fields.Boolean("Miércoles")
-    thursday = fields.Boolean("Jueves")
-    friday = fields.Boolean("Viernes")
-    saturday = fields.Boolean("Sabado")
-    sunday = fields.Boolean("Domingo")
+    Monday = fields.Boolean("Lunes")
+    Tuesday = fields.Boolean("Martes")
+    Wednesday = fields.Boolean("Miércoles")
+    Thursday = fields.Boolean("Jueves")
+    Friday = fields.Boolean("Viernes")
+    Saturday = fields.Boolean("Sabado")
+    Sunday = fields.Boolean("Domingo")
 
