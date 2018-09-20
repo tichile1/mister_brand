@@ -9,13 +9,13 @@
                     <field name="days_to_apply"/>
                 </xpath>
                 <xpath expr="//field[@name='days_to_apply']" position="after">
-                    <field name="monday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
-                    <field name="tuesday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
-                    <field name="wednesday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
-                    <field name="thursday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
-                    <field name="friday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
-                    <field name="saturday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
-                    <field name="sunday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
+                    <field name="monday" attrs="{'invisible': [('days_to_apply','!=',True)]}"/>
+                    <field name="tuesday" attrs="{'invisible': [('days_to_apply','!=',True)]}"/>
+                    <field name="wednesday" attrs="{'invisible': [('days_to_apply','!=',True)]}"/>
+                    <field name="thursday" attrs="{'invisible': [('days_to_apply','!=',True)]}"/>
+                    <field name="friday" attrs="{'invisible': [('days_to_apply','!=',True)]}"/>
+                    <field name="saturday" attrs="{'invisible': [('days_to_apply','!=',True)]}"/>
+                    <field name="sunday" attrs="{'invisible': [('days_to_apply','!=',True)]}"/>
                 </xpath>
             </data>
         </field>

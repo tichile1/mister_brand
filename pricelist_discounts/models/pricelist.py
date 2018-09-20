@@ -1,4 +1,5 @@
 from odoo import api, fields, models, tools
+from datetime import datetime, date, time
 
 class Pricelist(models.Model):
     _inherit = "product.pricelist"
@@ -14,6 +15,8 @@ class Pricelist(models.Model):
             :param datetime date: validity date
             :param ID uom_id: intermediate unit of measure
         """
+        today = date.today().strftime("%A")
+
         self.ensure_one()
         if not date:
             date = self._context.get('date') or fields.Date.context_today(self)
@@ -89,6 +92,8 @@ class Pricelist(models.Model):
 
             price_uom = self.env['product.uom'].browse([qty_uom_id])
             for rule in items:
+                if rule.specific_days and getattr(rule,today):
+                    continue
                 if rule.min_quantity and qty_in_product_uom < rule.min_quantity:
                     continue
                 if is_product_template:
