@@ -3,17 +3,6 @@ from odoo import api, fields, models, tools
 class Pricelist(models.Model):
     _inherit = "product.pricelist"
 
-    days_to_apply = fields.Boolean("Specific Days")
-    days = {
-        'Monday': fields.Boolean('Lunes'),
-        'Tuesday': fields.Boolean('Martes'),
-        'Wednesday': fields.Boolean('Miércoles'),
-        'Thursday': fields.Boolean('Jueves'),
-        'Friday': fields.Boolean('Viernes'),
-        'Saturday': fields.Boolean('Sabado'),
-        'Sunday': fields.Boolean('Domingo'),
-    }
-
     @api.multi
     def _compute_price_rule(self, products_qty_partner, date=False, uom_id=False):
         """ Low-level method - Mono pricelist, multi products
@@ -165,4 +154,16 @@ class Pricelist(models.Model):
             results[product.id] = (price, suitable_rule and suitable_rule.id or False)
 
         return results
+
+class PricelistItem(models.Model):
+    _inherit = "product.pricelist.item"
+
+    days_to_apply = fields.Boolean("Specific Days")
+    monday = fields.Boolean("Lunes")
+    tuesday = fields.Boolean("Martes")
+    wednesday = fields.Boolean("Miércoles")
+    thursday = fields.Boolean("Jueves")
+    friday = fields.Boolean("Viernes")
+    saturday = fields.Boolean("Sabado")
+    sunday = fields.Boolean("Domingo")
 

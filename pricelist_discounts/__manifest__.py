@@ -18,12 +18,12 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['product']
+    'depends': ['product'],
 
     # always loaded
     'data': [
-        'views/pricelist.xml'
         # 'security/ir.model.access.csv',
+        'views/pricelist.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -1,21 +1,21 @@
 <odoo>
     <record model="ir.ui.view" id="tdt_pricelist_days">
-        <field name="name">product.pricelist.item</field>
-        <field name="model">product.pricelist</field>
-        <field name="inherit_id" ref="product.product_pricelist_view"/>
+        <field name="name">product.pricelist.item.checkbox</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
         <field name="arch" type="xml">
             <data>
                 <xpath expr="//field[@name='date_end']" position="after">
                     <field name="days_to_apply"/>
                 </xpath>
                 <xpath expr="//field[@name='days_to_apply']" position="after">
-                    <field name="Monday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
-                    <field name="Tuesday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
-                    <field name="Wednesday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
-                    <field name="Thursday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
-                    <field name="Friday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
-                    <field name="Saturday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
-                    <field name="Sunday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
+                    <field name="monday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
+                    <field name="tuesday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
+                    <field name="wednesday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
+                    <field name="thursday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
+                    <field name="friday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
+                    <field name="saturday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
+                    <field name="sunday" attrs="{'invisible': [('days_to_apply','=',True)]}"/>
                 </xpath>
             </data>
         </field>
