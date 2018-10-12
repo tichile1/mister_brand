@@ -9,13 +9,13 @@
                     <field name="days_to_apply"/>
                 </xpath>
                 <xpath expr="//field[@name='days_to_apply']" position="after">
-                    <field name="day_of_the_week_0" attrs="{'invisible': [('days_to_apply','!=',True)]}"/>
                     <field name="day_of_the_week_1" attrs="{'invisible': [('days_to_apply','!=',True)]}"/>
                     <field name="day_of_the_week_2" attrs="{'invisible': [('days_to_apply','!=',True)]}"/>
                     <field name="day_of_the_week_3" attrs="{'invisible': [('days_to_apply','!=',True)]}"/>
                     <field name="day_of_the_week_4" attrs="{'invisible': [('days_to_apply','!=',True)]}"/>
                     <field name="day_of_the_week_5" attrs="{'invisible': [('days_to_apply','!=',True)]}"/>
                     <field name="day_of_the_week_6" attrs="{'invisible': [('days_to_apply','!=',True)]}"/>
+                    <field name="day_of_the_week_0" attrs="{'invisible': [('days_to_apply','!=',True)]}"/>
                 </xpath>
             </data>
         </field>
