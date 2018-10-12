@@ -4,6 +4,8 @@ from datetime import datetime, date, time
 class Pricelist(models.Model):
     _inherit = "product.pricelist"
 
+    _order = "applied_on, min_quantity desc, categ_id desc,  ,id"
+
     @api.multi
     def _compute_price_rule(self, products_qty_partner, date=False, uom_id=False):
         """ Low-level method - Mono pricelist, multi products
@@ -15,7 +17,6 @@ class Pricelist(models.Model):
             :param datetime date: validity date
             :param ID uom_id: intermediate unit of measure
         """
-        today = date.today().strftime("%A")
 
         self.ensure_one()
         if not date:
@@ -92,7 +93,8 @@ class Pricelist(models.Model):
 
             price_uom = self.env['product.uom'].browse([qty_uom_id])
             for rule in items:
-                if rule.specific_days and rule.is_day_active(datetime.now().strftime('%w')):
+                import pdb; pdb.set_trace()
+                if rule.days_to_apply and not rule.is_day_active(int(datetime.strptime(date, '%Y-%m-%d %H:%M:%S').strftime('%w'))):
                     continue
                 if rule.min_quantity and qty_in_product_uom < rule.min_quantity:
                     continue
@@ -162,6 +164,8 @@ class Pricelist(models.Model):
 
 class PricelistItem(models.Model):
     _inherit = "product.pricelist.item"
+
+    _order = "applied_on, min_quantity desc, categ_id desc, days_to_apply,id"
 
     days_to_apply = fields.Boolean("Specific Days")
     day_of_the_week_0 = fields.Boolean("Domingo")
