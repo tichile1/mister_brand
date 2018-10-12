@@ -4,8 +4,6 @@ from datetime import datetime, date, time
 class Pricelist(models.Model):
     _inherit = "product.pricelist"
 
-    _order = "applied_on, min_quantity desc, categ_id desc,  ,id"
-
     @api.multi
     def _compute_price_rule(self, products_qty_partner, date=False, uom_id=False):
         """ Low-level method - Mono pricelist, multi products
