@@ -92,7 +92,7 @@ class Pricelist(models.Model):
 
             price_uom = self.env['product.uom'].browse([qty_uom_id])
             for rule in items:
-                if rule.specific_days and rule.is_day_active():
+                if rule.specific_days and rule.is_day_active(datetime.now().strftime('%w')):
                     continue
                 if rule.min_quantity and qty_in_product_uom < rule.min_quantity:
                     continue
@@ -164,13 +164,13 @@ class PricelistItem(models.Model):
     _inherit = "product.pricelist.item"
 
     days_to_apply = fields.Boolean("Specific Days")
-    day_of_the_week_0 = fields.Boolean("Lunes")
-    day_of_the_week_1 = fields.Boolean("Martes")
-    day_of_the_week_2 = fields.Boolean("Miércoles")
-    day_of_the_week_3 = fields.Boolean("Jueves")
-    day_of_the_week_4 = fields.Boolean("Viernes")
-    day_of_the_week_5 = fields.Boolean("Sabado")
-    day_of_the_week_6 = fields.Boolean("Domingo")
+    day_of_the_week_0 = fields.Boolean("Domingo")
+    day_of_the_week_1 = fields.Boolean("Lunes")
+    day_of_the_week_2 = fields.Boolean("Martes")
+    day_of_the_week_3 = fields.Boolean("Miércoles")
+    day_of_the_week_4 = fields.Boolean("Jueves")
+    day_of_the_week_5 = fields.Boolean("Viernes")
+    day_of_the_week_6 = fields.Boolean("Sabado")
 
     def is_day_active(self,day):
         return (
