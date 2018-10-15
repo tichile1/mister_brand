@@ -91,7 +91,8 @@ class Pricelist(models.Model):
 
             price_uom = self.env['product.uom'].browse([qty_uom_id])
             for rule in items:
-                if rule.days_to_apply and not rule.is_day_active(int(datetime.strptime(date, '%Y-%m-%d %H:%M:%S').strftime('%w'))):
+                import pdb; pdb.set_trace()
+                if rule.days_to_apply and not rule.is_day_active(datetime.strptime(date, '%Y-%m-%d %H:%M:%S').weekday()):
                     continue
                 if rule.min_quantity and qty_in_product_uom < rule.min_quantity:
                     continue
@@ -175,11 +176,11 @@ class PricelistItem(models.Model):
 
     def is_day_active(self,day):
         return (
-            lambda: self.day_of_the_week_0,
             lambda: self.day_of_the_week_1,
             lambda: self.day_of_the_week_2,
             lambda: self.day_of_the_week_3,
             lambda: self.day_of_the_week_4,
             lambda: self.day_of_the_week_5,
             lambda: self.day_of_the_week_6,
+            lambda: self.day_of_the_week_0,
         )[day]()
