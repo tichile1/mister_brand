@@ -1,6 +1,8 @@
 from odoo import api, fields, models, tools
 from datetime import datetime, date, time
 
+_logger = logging.getLogger(__name__)
+
 class Pricelist(models.Model):
     _inherit = "product.pricelist"
 
@@ -175,6 +177,7 @@ class PricelistItem(models.Model):
     day_of_the_week_6 = fields.Boolean("Sabado")
 
     def is_day_active(self,day):
+        _logger.info("Day %d", day)
         return (
             lambda: self.day_of_the_week_1,
             lambda: self.day_of_the_week_2,
