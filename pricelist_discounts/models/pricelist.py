@@ -1,8 +1,5 @@
 from odoo import api, fields, models, tools
 from datetime import datetime, date, time
-import logging
-
-_logger = logging.getLogger(__name__)
 
 class Pricelist(models.Model):
     _inherit = "product.pricelist"
@@ -18,7 +15,6 @@ class Pricelist(models.Model):
             :param datetime date: validity date
             :param ID uom_id: intermediate unit of measure
         """
-
         self.ensure_one()
         if not date:
             date = self._context.get('date') or fields.Date.context_today(self)
@@ -165,7 +161,7 @@ class Pricelist(models.Model):
 class PricelistItem(models.Model):
     _inherit = "product.pricelist.item"
 
-    _order = "applied_on, min_quantity desc, categ_id desc, days_to_apply,id"
+    _order = "applied_on, min_quantity desc, categ_id desc, days_to_apply desc,id"
 
     days_to_apply = fields.Boolean("Specific Days")
     day_of_the_week_0 = fields.Boolean("Domingo")
@@ -177,7 +173,6 @@ class PricelistItem(models.Model):
     day_of_the_week_6 = fields.Boolean("Sabado")
 
     def is_day_active(self,day):
-        _logger.info("Day %d", day)
         return (
             lambda: self.day_of_the_week_1,
             lambda: self.day_of_the_week_2,
