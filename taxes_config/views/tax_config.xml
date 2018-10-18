@@ -1,0 +1,14 @@
+<odoo>
+    <record model="ir.ui.view" id="product_taxes">
+        <field name="name">account.tax.form</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.tax_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="applies_on"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+</odoo>
