@@ -1,9 +1,9 @@
 from odoo import api, fields, models, tools
 
-class ProductTaxes(models.Model):
+class Tax(models.Model):
     _inherit = "account.tax"
 
-    applies_on = fields.One2Many(
+    categories = fields.Many2one(
         'product.category',
-        string="Aplica a:"    
+        string="Categories",
     )

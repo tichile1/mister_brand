@@ -3,11 +3,11 @@
     'name': u"Mr.Brand Modifications",
 
     'summary': """
-        Mr.Brand Priclist Modification
+        Mr.Brand Taxes Modification
         """,
 
     'description': u"""
-        Módulo que implementa modificaciones a los pricelist""",
+        Módulo que implementa modificaciones a los impuestos""",
 
     'author': "TDT Consultants",
     'website': "http://www.tdtconsultants.com",
@@ -18,7 +18,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['account, product'],
+    'depends': ['account', 'product'],
 
     # always loaded
     'data': [

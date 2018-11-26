@@ -2,11 +2,24 @@
     <record model="ir.ui.view" id="product_taxes">
         <field name="name">account.tax.form</field>
         <field name="model">account.tax</field>
-        <field name="inherit_id" ref="account.tax_form"/>
+        <field name="inherit_id" ref="account.view_tax_form"/>
         <field name="arch" type="xml">
             <data>
                 <xpath expr="//field[@name='tag_ids']" position="after">
-                    <field name="applies_on"/>
+                    <field name="categories"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_categories">
+        <field name="name">product.category.form</field>
+        <field name="model">product.category</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="taxes" widget="one2many"/>
                 </xpath>
             </data>
         </field>
